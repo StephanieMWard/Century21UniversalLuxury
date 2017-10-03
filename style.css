@@ -1,0 +1,442 @@
+/* -----CSS RESET----- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* -------------------------------Main CSS------------------------------------ */
+p {
+	font-family: "Century Gothic", Arial, sans-serif;
+	font-size: 14px;
+}
+
+/* -----Header----- */
+.header {
+	background-color: black;
+	height: 45px;
+	border-bottom-style: solid;
+	border-bottom-width: 8px;
+	border-bottom-color: #eebc13;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	position: fixed;
+	width: 100%;
+	z-index: 500;
+}
+/*Navigation*/
+#nav {
+	list-style: none;
+	font-weight: bold;
+	color: white;
+	font-family: "Century Gothic", Arial, sans-serif;
+	margin-bottom: 10px;
+	margin-left: 15%;
+	float: left;
+	width: 100%;
+	z-index: 5;
+}
+#nav li {
+	float: left;
+	margin-right: 10px;
+	position: relative;
+}
+/*#nav li:hover {
+	background-color: #eebc13;
+}*/
+#nav a {
+	display: block;
+	padding: 5px;
+	color: white;
+	background-color: rgba(0,0,0,0.8);
+	text-decoration: none;
+}	
+#nav a:hover {
+	color: white;
+	background-color: #eebc13;
+	text-decoration: none;
+}
+/*Dropdown*/
+#nav ul {
+	background: black;
+	background: rgba(0,0,0,0);
+	list-style: none;
+	position: absolute;
+	left: -9999px;
+}
+#nav ul li {
+	padding-top: 1px;
+	float: none;
+}	
+#nav ul a {
+	white-space: nowrap; /*Stop text wrapping and creating multi-line dropdown items*/
+}
+#nav li:hover ul {
+	left: 0;
+}
+#nav li:hover a {
+	/*background: rgba(0,0,0,0.8);*/
+	text-decoration: none;
+}
+#nav li:hover ul li a:hover {
+	background: rgba(238,188,19,0.8);
+}
+
+
+/* -----Slideshow----- */
+#slideshow {
+	width: 100%;
+	height: 500px;
+	top: 53px;
+}
+
+.slideshow,
+.slideshow:after {
+    position: absolute;
+    width: 100%;
+    height: 510px;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+.slideshow:after {
+    content: '';
+    background: transparent url(../images/pattern.png) repeat top left;
+}
+.slideshow li span {
+    width: 100%;
+    height: 510px;
+    position: absolute;
+    top: 53px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+	-webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 24s linear infinite 0s;
+    -moz-animation: imageAnimation 24s linear infinite 0s;
+    -o-animation: imageAnimation 24s linear infinite 0s;
+    -ms-animation: imageAnimation 24s linear infinite 0s;
+    animation: imageAnimation 24s linear infinite 0s;
+}
+.slideshow li:nth-child(1) span { background-image: url(http://www.century21universalluxury.com/splash/imgs/Slide_01.jpg) }
+.slideshow li:nth-child(2) span {
+    background-image: url(http://www.century21universalluxury.com/splash/imgs/Slide_02.jpg);
+    -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -o-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay: 6s;
+}
+.slideshow li:nth-child(3) span {
+    background-image: url(http://www.century21universalluxury.com/splash/imgs/Slide_03.jpg);
+    -webkit-animation-delay: 12s;
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
+}
+.slideshow li:nth-child(4) span {
+    background-image: url(http://www.century21universalluxury.com/splash/imgs/Slide_04.jpg);
+    -webkit-animation-delay: 18s;
+    -moz-animation-delay: 18s;
+    -o-animation-delay: 18s;
+    -ms-animation-delay: 18s;
+    animation-delay: 18s;
+}
+/* Animation for the slideshow images */
+@-webkit-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -webkit-animation-timing-function: ease-in;
+	}
+	3% {
+	    opacity: 1;
+	    -webkit-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	}
+	30% {
+	    opacity: 0;
+	}
+	100% { opacity: 0 }
+}
+@-moz-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -moz-animation-timing-function: ease-in;
+	}
+	3% {
+	    opacity: 1;
+	    -moz-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	}
+	30% {
+	    opacity: 0;
+	}
+	100% { opacity: 0 }
+}
+@-o-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -o-animation-timing-function: ease-in;
+	}
+	3% {
+	    opacity: 1;
+	    -o-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	}
+	30% {
+	    opacity: 0;
+	}
+	100% { opacity: 0 }
+}
+@-ms-keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    -ms-animation-timing-function: ease-in;
+	}
+	3% {
+	    opacity: 1;
+	    -ms-animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	}
+	30% {
+	    opacity: 0;
+	}
+	100% { opacity: 0 }
+}
+@keyframes imageAnimation { 
+	0% {
+	    opacity: 0;
+	    animation-timing-function: ease-in;
+	}
+	3% {
+	    opacity: 1;
+	    animation-timing-function: ease-out;
+	}
+	17% {
+	    opacity: 1;
+	}
+	30% {
+	    opacity: 0;
+	}
+	100% { opacity: 0 }
+}
+/* Show at least something when animations not supported */
+.no-cssanimations .slideshow li span{
+	opacity: 1;
+}
+@media screen and (max-width: 1140px) { 
+	.slideshow li div h3 { font-size: 100px }
+}
+@media screen and (max-width: 600px) { 
+	.slideshow li div h3 { font-size: 50px }
+}
+
+/* Logo */
+.logo {
+	height: 120px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	position: absolute;
+	top: 53px;
+	z-index: 100;
+}
+.logo img {
+	margin: 0;
+	padding: 0;
+	height: 120px;
+}
+
+/* -----Main Content----- */
+
+#yellowbox1 {
+	height: 200px;
+	width: 400px;
+	background-color: #eebc13;
+	position: relative;
+	margin-top: 150px;
+	margin-left: 20%;
+}
+#button1 {
+	height: 200px;
+	width: 200px;
+	background-color: black;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/flower_1.jpg);
+	background-size: 200px;
+    position: absolute;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+#button1 p {
+	text-align: center;
+	padding: 90px 0 90px 0;
+	text-shadow: 1px 1px #000, 1px 1px 3px #000;
+}
+#button2 {
+	height: 200px;
+	width: 200px;
+	background-color: black;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/flower_3.jpg);
+	background-size: 200px;
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 240px;
+}
+#button2 p {
+	text-align: center;
+	padding: 90px 0 90px 0;
+	text-shadow: 1px 1px #000, 1px 1px 3px #000;
+}
+#button3 {
+	height: 200px;
+	width: 200px;
+	background-color: black;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/flower_4.jpg);
+	background-size: 200px;
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 480px;
+	box-shadow: 15px 20px 0 0 #eebc13;
+}
+#button3 p {
+	text-align: center;
+	padding: 90px 0 90px 0; 
+	text-shadow: 1px 1px #000, 1px 1px 3px #000;
+}
+.maincontent p {
+	color: #eebc13;
+	font-family: "Century Gothic", Arial, sans-serif; 
+	font-size: 18px;
+}
+span {
+	color: black;
+}
+/* -----Footer----- */
+
+.footer {
+	height: 400px;
+	background-color: #333;
+	margin-top: 120px;
+	margin-bottom: 0;
+	position: relative;
+}
+.footer p {
+	color: #eebc13;
+	position: absolute;
+	bottom: 20px;
+	left: 3%;
+}
+#bold {
+	font-weight: bold;
+}
+.container {
+	width: 1100px;
+	margin: 0 auto;
+}
+.footerbutton {
+	width: 200px;
+	height: 300px;
+	background-color: black;
+	/*margin-bottom: 50px;*/
+}
+#FB {
+	margin-top: 20px;
+	/*margin-left: 30px;*/
+	/*display: inline-block;*/
+	position: absolute;
+	left: 30px;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/FB.jpg);
+}
+#TW {
+	margin-top: 20px;
+	/*margin-left: 30px;*/
+	/*display: inline-block;*/
+	position: absolute;
+	left: 260px;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/TW.jpg);
+}
+#GP {
+	margin-top: 20px;
+	/*margin-left: 30px;*/
+	/*display: inline-block;*/
+	position: absolute;
+	left: 490px;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/GP.jpg);
+}
+#IN {
+	margin-top: 20px;
+	/*margin-left: 30px;*/
+	/*display: inline-block;*/
+	position: absolute;
+	left: 720px;
+	background-image: url(http://www.century21universalluxury.com/splash/imgs/IN.jpg);
+}
+.footertxt {
+	height: 300px;
+	width: 350px;
+	background-color: #eebc13;
+	/*display: inline-block;*/
+	margin-top: 20px;
+	/*margin-left: 30px;*/
+	/*margin-right: 30px;*/
+	position: absolute;
+	right: 30px;
+}
+.footertxt p {
+	color: black;
+	padding: 20px;
+	font-size: 14.5px;
+}
